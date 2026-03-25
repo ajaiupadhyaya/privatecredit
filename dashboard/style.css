@@ -1,0 +1,109 @@
+/* NYT meets MoMA Base Styling */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;600;700&display=swap');
+
+/* Main Background */
+.stApp {
+    background-color: #F8F9FA; /* Off-white gallery wall */
+    font-family: 'Inter', sans-serif;
+    color: #111111;
+}
+
+/* Typography Hierarchy */
+h1, .stHeadingContainer h1 {
+    font-family: 'Lora', serif !important;
+    font-weight: 700 !important;
+    font-size: 3rem !important;
+    letter-spacing: -0.02em;
+    color: #000000;
+    border-bottom: 2px solid #E63946; /* MoMA Red accent */
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+h2, .stHeadingContainer h2 {
+    font-family: 'Lora', serif !important;
+    font-weight: 600 !important;
+    font-size: 2rem !important;
+    color: #111111;
+    margin-top: 2rem;
+}
+
+h3, .stHeadingContainer h3 {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 1.25rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #555555;
+    margin-top: 1.5rem;
+}
+
+p, .stMarkdown p {
+    font-family: 'Lora', serif !important;
+    font-size: 1.15rem !important;
+    line-height: 1.7;
+    color: #333333;
+}
+
+/* Hide Streamlit default UI elements */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+
+/* Spacing and Layout tweaks */
+.block-container {
+    padding-top: 3rem !important;
+    padding-bottom: 5rem !important;
+    max-width: 1200px !important;
+}
+
+/* Stat Blocks - MoMA geometric styling */
+[data-testid="stMetricValue"] {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 2.5rem !important;
+    color: #000000;
+}
+
+[data-testid="stMetricLabel"] {
+    font-family: 'Inter', sans-serif !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.85rem !important;
+    color: #777777;
+}
+
+[data-testid="stMetric"] {
+    background: #FFFFFF;
+    border: 1px solid #EAEAEA;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    border-left: 4px solid #1D3557;
+}
+
+/* Special Highlighting */
+.highlight-red {
+    color: #E63946;
+    font-weight: 600;
+}
+
+/* Callout styling */
+.stAlert {
+    background-color: #FFFFFF !important;
+    border: 1px solid #EAEAEA !important;
+    border-left: 4px solid #E63946 !important;
+    border-radius: 0 !important;
+    color: #111111 !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* Sidebar styling */
+[data-testid="stSidebar"] {
+    background-color: #FAFAFA !important;
+    border-right: 1px solid #EAEAEA;
+}
+[data-testid="stSidebar"] h1 {
+    font-size: 1.5rem !important;
+    border-bottom: none;
+}
