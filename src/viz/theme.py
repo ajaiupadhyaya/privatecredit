@@ -40,7 +40,7 @@ def apply_nyt_moma_theme():
                 ),
                 x=0.01,
                 xanchor="left",
-                y_anchor="top",
+                yanchor="top",
             ),
             colorway=moma_palette,
             hovermode="x unified",

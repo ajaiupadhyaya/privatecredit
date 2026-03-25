@@ -3,6 +3,12 @@ import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+
+import sys
+import os
+# Ensure root directory is in the path to find 'src'
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from src.data.db_manager import load_dataframe
 from src.viz.theme import apply_nyt_moma_theme
 from src.features.quant_metrics import calculate_rolling_volatility, calculate_drawdowns, compute_fragility_index, merton_distance_to_default
@@ -87,7 +93,7 @@ fig_regime.update_layout(
     yaxis_title="BAA Corporate - 10Y Yield Spread (%)",
     height=500
 )
-st.plotly_chart(fig_regime, use_container_width=True)
+st.plotly_chart(fig_regime, width="stretch")
 
 st.html(r"""
 <div style="background-color: #F8F9FA; border-top: 2px solid #000; border-bottom: 2px solid #000; padding: 2rem 0; margin: 3rem 0;">
@@ -138,7 +144,7 @@ with col2:
                          yaxis_title="Standard Deviations to Default",
                          yaxis=dict(autorange="reversed"), # Reversed because lower is worse
                          height=350)
-    st.plotly_chart(fig_dd, use_container_width=True)
+    st.plotly_chart(fig_dd, width="stretch")
 
 
 # --- SECTION 3: THE 3D CONTAGION SURFACE ---
@@ -181,7 +187,7 @@ fig3d.update_layout(
     margin=dict(l=0, r=0, b=0, t=0),
     title_text="Temporal Risk Trajectory"
 )
-st.plotly_chart(fig3d, use_container_width=True)
+st.plotly_chart(fig3d, width="stretch")
 
 st.html(r"""
 <div style="margin-top: 4rem; text-align: center; color: #888; font-family: 'Inter', sans-serif; font-size: 0.85rem;">
