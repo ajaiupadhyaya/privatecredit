@@ -1,0 +1,5 @@
+# Canonical offline portfolio build and tests. Reference runtime: Python 3.11.
+numpy==1.26.4
+pandas==2.3.2
+scipy==1.16.1
+pytest==7.4.0

@@ -32,6 +32,8 @@ st.html(r"""
 </div>
 """)
 
+st.warning("Legacy research view: the bundled macro snapshot has unverified provenance and may be simulated. Do not interpret it as observed market evidence. Use the Credit Observatory portfolio for validated results.")
+
 # 2. Data Loading & Processing
 @st.cache_data
 def load_and_prep_data():

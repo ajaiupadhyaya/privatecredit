@@ -40,7 +40,7 @@ def compute_fragility_index(hy_spread: pd.Series, base_rate: pd.Series, delinq: 
     raw_fragility = (alpha * z_spread) + (beta * z_rate) + (gamma * z_delinq)
     
     fragility_ewma = raw_fragility.ewm(span=60, adjust=False).mean()
-    fragility_index = 100 + (fragility_ewma.fillna(0) * 15)
+    fragility_index = 100 + (fragility_ewma * 15)
     return fragility_index
 
 def merton_distance_to_default(equity_volatility: pd.Series, risk_free_rate: pd.Series, leverage_ratio: float = 1.0) -> pd.Series:

@@ -30,15 +30,15 @@ def fetch_bdc_data(start_date="2018-01-01"):
         returns = prices.pct_change().dropna()
         
         # Calculate a simple equal-weighted BDC index
-        prices['bdc_index'] = prices.mean(axis=1)
         returns['bdc_index_return'] = returns.mean(axis=1)
+        prices['bdc_index'] = (1 + returns['bdc_index_return']).cumprod() * 100
         
         return prices, returns
     except Exception as e:
         print(f"Error fetching BDC data from yfinance: {e}")
         return pd.DataFrame(), pd.DataFrame()
 
-def fetch_macro_data(start_date="2018-01-01"):
+def fetch_macro_data(start_date="2018-01-01", allow_synthetic=False):
     """
     Fetches macroeconomic indicators from FRED:
     - BAMLH0A0HYM2: ICE BofA US High Yield Index Option-Adjusted Spread
@@ -46,8 +46,9 @@ def fetch_macro_data(start_date="2018-01-01"):
     - DRBLACBS: Delinquency Rate on Business Loans
     """
     if not FRED_API_KEY:
-        print("WARNING: FRED_API_KEY not found in environment. Returning mock macro data.")
-        return _generate_mock_macro(start_date)
+        if allow_synthetic:
+            return _generate_mock_macro(start_date)
+        raise RuntimeError("FRED_API_KEY is required. Synthetic data must be explicitly requested.")
         
     try:
         fred = Fred(api_key=FRED_API_KEY)
@@ -98,8 +99,9 @@ def fetch_macro_data(start_date="2018-01-01"):
 
     except Exception as e:
         print(f"Error fetching FRED data: {e}")
-        print("Falling back to mock macro data.")
-        return _generate_mock_macro(start_date)
+        if allow_synthetic:
+            return _generate_mock_macro(start_date)
+        raise RuntimeError("FRED retrieval failed; no synthetic substitution was made") from e
 
 def _generate_mock_macro(start_date="2018-01-01"):
     """Generates synthetic macro data if FRED API is unavailable."""

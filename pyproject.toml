@@ -1,7 +1,7 @@
 [project]
 name = "privatecredit"
 version = "0.1.0"
-description = "Add your description here"
+description = "Credit Observatory: reproducible credit research and liquidity stress mechanics"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
