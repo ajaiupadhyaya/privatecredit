@@ -2,7 +2,7 @@
 
 **Where credit becomes fragile.** A portfolio research experience by Ajai Upadhyaya, joining market structure, synthetic credit classification, and liquidity accounting.
 
-[Open the portfolio](dist/index.html) · [Read the credit-risk report](dist/credit-report.html) · [Download the research snapshot](dist/research.json) · [Audit and verification](docs/AUDIT.md)
+[Live portfolio](https://ajaiupadhyaya.github.io/privatecredit/) · [Offline portfolio](dist/index.html) · [Read the credit-risk report](dist/credit-report.html) · [Download the research snapshot](dist/research.json) · [Audit and verification](docs/AUDIT.md)
 
 ## What is finished
 
@@ -71,6 +71,6 @@ The unused Next.js starter has been replaced by the dependency-free site. The le
 
 ## Publish
 
-Upload the **contents of `dist/`** to a static host, including `data.js`, `domain.js`, styles, JSON, and the report. Relative URLs support hosting under a portfolio subdirectory. No build command is needed when publishing the committed artifact. CI builds and checks the site and produces a downloadable artifact; it does not publish automatically.
+Upload the **contents of `dist/`** to a static host, including `data.js`, `domain.js`, styles, JSON, and the report. Relative URLs support hosting under a portfolio subdirectory. No build command is needed when publishing the committed artifact. The publication workflow tests and builds the site, then deploys only `dist/` to GitHub Pages on pushes to `main`. The verification workflow also produces a downloadable artifact.
 
 Do not publish the entire workspace: it contains original data, exploratory results, and unrelated local files. See [PUBLICATION.md](docs/PUBLICATION.md) for the release boundary and remaining browser check.

@@ -1,5 +1,9 @@
 # Publication handoff
 
+## Hosting
+
+The publication destination is https://ajaiupadhyaya.github.io/privatecredit/. The GitHub Actions workflow `.github/workflows/publish.yml` runs the Python and Node checks before deploying only `dist/` on pushes to `main`. Both project repositories are saved to their existing GitHub remotes.
+
 ## Deliverable
 
 Publish only `dist/`. It contains the HTML application, local styles and scripts, aggregate research JSON, and standalone credit-risk report. All paths are relative; it can live at `/research/credit/` as well as a site root. The built artifact needs no server-side runtime, build service, API keys, or database.
